@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="A Dynamic Graph Library">
+  <meta name="author" content="Yoann Pigné">
+  <title>GraphStream</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="bower_components/reveal.js/css/theme/none.css" id="theme">
+  <link rel="stylesheet" href="css/main.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'bower_components/reveal.js/css/print/pdf.css' : 'bower_components/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">GraphStream</h1>
+  <h2 class="author">A Dynamic Graph Library</h2>
+  <h2 class="author">Yoann Pigné</h2>
+  <h3 class="date">NetSciX2016 – School of Code</h3>
+</section>
+
+<section id="sources" class="slide level1">
+<h1>Sources</h1>
+<p>Codes and Presentations are on GitHub</p>
+<ul>
+<li>Code : <a href="https://github.com/graphstream/gs-talk">github.com/graphstream/gs-talk</a></li>
+<li>Slides : <a href="https://graphstream.github.io/gs-talk">graphstream.github.io/gs-talk</a></li>
+</ul>
+<figure>
+<img src="img/qr-github-gs-talk.svg" alt="Sources for Codes and Presentations" /><figcaption>Sources for Codes and Presentations</figcaption>
+</figure>
+</section>
+<section id="outline" class="slide level1">
+<h1>Outline</h1>
+<!--  {data-background="url('/img/tmp.png')"} -->
+<ul>
+<li><a href="lecture.html">General Presentation of GraphStream</a></li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+  <script src="bower_components/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: 0,
+        // Display a presentation progress bar
+        progress: 0,
+        // Display the page number of the current slide
+        slideNumber: 0,
+        // Push each slide change to the browser history
+        history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: 0,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Hides the address bar on mobile devices
+        hideAddressBar: true,
+        // Transition style
+        transition: 'linear', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'fast', // default/fast/slow
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 800,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
