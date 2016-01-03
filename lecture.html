@@ -98,7 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>(directed) Arcs</li>
 </ul>
 <figure>
-<img src="/img/simple-network.svg" alt="Simple Network" /><figcaption>Simple Network</figcaption>
+<img src="img/simple-network.svg" alt="Simple Network" /><figcaption>Simple Network</figcaption>
 </figure>
 </section>
 <section id="first-static-graphs-1" class="slide level1">
@@ -120,7 +120,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>nodes and/or edges added/removed?</li>
 </ul>
 <figure>
-<img src="/img/weighted-network.svg" alt="Weighted Network" /><figcaption>Weighted Network</figcaption>
+<img src="img/weighted-network.svg" alt="Weighted Network" /><figcaption>Weighted Network</figcaption>
 </figure>
 </section>
 <section id="when-we-add-dynamics-1" class="slide level1">
@@ -132,7 +132,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Depends on the dynamic graph model.</li>
 </ul>
 <figure>
-<img src="/img/varying-network.svg" alt="Time-Varying Network" /><figcaption>Time-Varying Network</figcaption>
+<img src="img/varying-network.svg" alt="Time-Varying Network" /><figcaption>Time-Varying Network</figcaption>
 </figure>
 </section>
 <section id="dynamic-graph-models" class="slide level1">
@@ -159,7 +159,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>All the evolution is known <strong>in advance</strong>, the dynamic graph is aggregated into a static graph. (Temporal Networks, Evolving Graphs, Time-Varying Graphs, etc.)</p>
 <p>Why? Because it allows the use of classical graph theory.</p>
 <figure>
-<img src="/img/temporal-network.svg" alt="Aggregative Methods" /><figcaption>Aggregative Methods</figcaption>
+<img src="img/temporal-network.svg" alt="Aggregative Methods" /><figcaption>Aggregative Methods</figcaption>
 </figure>
 </section>
 <section id="re-optimisation" class="slide level1">
@@ -167,7 +167,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Build and maintain structures on dynamic graphs (e.g. spanning trees) <strong>without</strong> prior knowledge of the evolution.</p>
 <p><strong>Hypothesis</strong>: Updating an existing structure after some modifications is more effective that recomputing it from scratch.</p>
 <figure>
-<img src="/img/re-optimization.svg" alt="Re-optimization" /><figcaption>Re-optimization</figcaption>
+<img src="img/re-optimization.svg" alt="Re-optimization" /><figcaption>Re-optimization</figcaption>
 </figure>
 </section>
 <section id="graphstream" class="slide level1">
@@ -244,11 +244,11 @@ g.<span class="fu">display</span>();</code></pre></div>
 <section id="graphstreams-event-model-1" class="slide level1">
 <h1>GraphStream’s Event Model</h1>
 <h3 id="sources">Sources</h3>
-<p>Produce streams of events. <img src="/img/source.svg" alt="" /></p>
+<p>Produce streams of events. <img src="img/source.svg" alt="" /></p>
 <h3 id="sinks">Sinks</h3>
-<p>Receive streams of events. <img src="/img/sink.svg" alt="" /></p>
+<p>Receive streams of events. <img src="img/sink.svg" alt="" /></p>
 <h3 id="pipes">Pipes</h3>
-<p>Both source and sink. A <strong>graph</strong> is a pipe. <img src="/img/pipe.svg" alt="" /></p>
+<p>Both source and sink. A <strong>graph</strong> is a pipe. <img src="img/pipe.svg" alt="" /></p>
 </section>
 <section id="pipelining" class="slide level1">
 <h1>Pipelining</h1>
@@ -260,7 +260,7 @@ g.<span class="fu">display</span>();</code></pre></div>
 </ul>
 <p>Sources, pipes and sinks can be connected to form pipelines.</p>
 <figure>
-<img src="/img/pipeline.svg" alt="Example Pipeline" /><figcaption>Example Pipeline</figcaption>
+<img src="img/pipeline.svg" alt="Example Pipeline" /><figcaption>Example Pipeline</figcaption>
 </figure>
 </section>
 <section id="pipelining-1" class="slide level1">
@@ -275,7 +275,7 @@ source.<span class="fu">begin</span>(<span class="st">&quot;someFile.dgs&quot;</
 }
 source.<span class="fu">end</span>();</code></pre></div>
 <figure>
-<img src="/img/pipeline.svg" alt="File-Graph-Viewer Pipeline" /><figcaption>File-Graph-Viewer Pipeline</figcaption>
+<img src="img/pipeline.svg" alt="File-Graph-Viewer Pipeline" /><figcaption>File-Graph-Viewer Pipeline</figcaption>
 </figure>
 </section>
 <section id="pipelining-2" class="slide level1">
@@ -288,7 +288,7 @@ source.<span class="fu">end</span>();</code></pre></div>
 </ul>
 <p>For example a viewer can run in a distinct thread or machine, while a simulation on a graph runs on another.</p>
 <figure>
-<img src="/img/proxy-pipe.svg" alt="Proxy Pipe" /><figcaption>Proxy Pipe</figcaption>
+<img src="img/proxy-pipe.svg" alt="Proxy Pipe" /><figcaption>Proxy Pipe</figcaption>
 </figure>
 </section>
 <section id="pipelining-3" class="slide level1">
@@ -379,7 +379,7 @@ algorithm.<span class="fu">setSource</span>(<span class="st">&quot;0&quot;</span
 <li>Get more information than the graph itself: sprites.</li>
 </ol>
 <p><img src="img/CSS.png" alt="CSS" /> <!--video controls  >
-  <source src="/img/boids.mp4" type="video/mp4">
+  <source src="img/boids.mp4" type="video/mp4">
 </video--> <iframe width="560" height="315" src="https://www.youtube.com/embed/hv8vrvzG9y0" frameborder="0" allowfullscreen></iframe></p>
 </section>
 <section id="extra-visual-information" class="slide level1">
@@ -392,7 +392,7 @@ node <span class="kw">{</span>
   <span class="kw">padding:</span> <span class="dt">5px</span>, <span class="dt">4px</span><span class="kw">;</span> <span class="kw">icon-mode:</span> at-left<span class="kw">;</span>
   <span class="kw">icon:</span> <span class="dt">url(</span><span class="st">&#39;data/Smiley_032.png&#39;</span><span class="dt">)</span><span class="kw">;</span>
 <span class="kw">}</span>    </code></pre></div>
-<p><img src="/img/size_mode2_.png" alt="css1" /><img src="/img/stroke_mode2.png" alt="css2" /><img src="/img/edge_shape1.png" alt="css3" /><img src="/img/node_shape6.png" alt="css4" /></p>
+<p><img src="img/size_mode2_.png" alt="css1" /><img src="img/stroke_mode2.png" alt="css2" /><img src="img/edge_shape1.png" alt="css3" /><img src="img/node_shape6.png" alt="css4" /></p>
 </section>
 <section id="extra-visual-information-1" class="slide level1">
 <h1>Extra visual information</h1>
@@ -417,7 +417,7 @@ c.<span class="fu">addAttribute</span>(<span class="st">&quot;ui.class&quot;</sp
 <h1>Extra visual information</h1>
 <h2 id="css-classes-1">CSS classes</h2>
 <figure>
-<img src="/img/funordull.png" alt="…and of course it is dynamic." /><figcaption>…and of course it is dynamic.</figcaption>
+<img src="img/funordull.png" alt="…and of course it is dynamic." /><figcaption>…and of course it is dynamic.</figcaption>
 </figure>
 </section>
 <section id="extra-visual-information-3" class="slide level1">
@@ -426,7 +426,7 @@ c.<span class="fu">addAttribute</span>(<span class="st">&quot;ui.class&quot;</sp
 <p>Graphical objects that give extra information on the application you deal with.</p>
 <div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">SpriteManager sman = <span class="kw">new</span> <span class="fu">SpriteManager</span>(graph);
 Sprite pin = sman.<span class="fu">addSprite</span>(<span class="st">&quot;pin&quot;</span>);</code></pre></div>
-<p>Sprites are also customised with CSS <img src="/img/mapPinSmall.png" alt="pin" /></p>
+<p>Sprites are also customised with CSS <img src="img/mapPinSmall.png" alt="pin" /></p>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">sprite<span class="fl">#pin</span> <span class="kw">{</span>
     <span class="kw">shape:</span> <span class="dt">box</span><span class="kw">;</span>
     <span class="kw">size:</span> <span class="dt">32px</span>, <span class="dt">52px</span><span class="kw">;</span>
@@ -437,20 +437,20 @@ Sprite pin = sman.<span class="fu">addSprite</span>(<span class="st">&quot;pin&q
 <section class="slide level1">
 
 <section data-background=" white">
-<img alt="LH" src="/img/leHavreStep2.png" style height="800px"/>
+<img alt="LH" src="img/leHavreStep2.png" style height="800px"/>
 </section>
 </section>
 <section class="slide level1">
 
 <section data-background=" white">
-<img alt="LH" src="/img/leHavreStep7.png" style height="800px"/>
+<img alt="LH" src="img/leHavreStep7.png" style height="800px"/>
 </section>
 </section>
 <section class="slide level1">
 
 <section data-background=" #efedef">
 <!-- <video controls  width="1280" height="800">
-  <source src="/img/graphstream-1.0.mp4" type="video/mp4">
+  <source src="img/graphstream-1.0.mp4" type="video/mp4">
 </video> -->
 <iframe width="1280" height="800" src="https://www.youtube.com/embed/XX5rRF6uxow" frameborder="0" allowfullscreen>
 </iframe>
