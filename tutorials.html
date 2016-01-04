@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Let’s get some coding done">
+  <title>GraphStream Tutorials</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="bower_components/reveal.js/css/theme/none.css" id="theme">
+  <link rel="stylesheet" href="css/main.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'bower_components/reveal.js/css/print/pdf.css' : 'bower_components/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">GraphStream Tutorials</h1>
+  <h2 class="author">Let’s get some coding done</h2>
+  <h3 class="date">NetSciX2016 – School of Code</h3>
+</section>
+
+<section id="outlook" class="slide level1">
+<h1>Outlook</h1>
+<ul>
+<li><p>Installation of GraphStream</p></li>
+<li><p>Tutorial 1: Basic tasks with GraphStream</p></li>
+<li><p>Tutorial 2: A first dynamic graph</p></li>
+</ul>
+</section>
+<section id="installation-of-graphstream" class="slide level1">
+<h1>Installation of GraphStream</h1>
+<p>Basic steps to install GraphStream</p>
+<ul>
+<li>Get a working java SDK installed</li>
+<li>Get the GraphStream tutorial sources</li>
+<li>Get Eclipse installed</li>
+<li>Get GraphStream binaries</li>
+</ul>
+</section>
+<section id="get-the-tutorial-workspace" class="slide level1">
+<h1>Get the tutorial workspace</h1>
+<ul>
+<li>Go to the tutorial page at github: http://github.com/graphstream/gs-talk/</li>
+<li>Get the code:
+<ul>
+<li>with the “Download Zip” button on github (will download an archive)</li>
+<li>or through git:</li>
+</ul></li>
+</ul>
+<pre class="sh"><code>git clone git://github.com/graphstream/gs-talk.git
+</code></pre>
+<p>In that project, we want the <code>Demos/</code> folder.</p>
+</section>
+<section id="get-eclipse-installed" class="slide level1">
+<h1>Get Eclipse Installed</h1>
+<ul>
+<li>Go to the Eclipse download page at: <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/mars1">www.eclipse.org/downloads/packages/eclipse-ide-java-developers/mars1</a></li>
+<li>On the right column, “Download Links”, pick up your OS</li>
+<li>Click the download button</li>
+<li>Once downloaded, open the file. An eclipse folder is created. Move it somewhere safe.</li>
+<li>Start Eclipse.</li>
+</ul>
+</section>
+<section id="import-the-project" class="slide level1">
+<h1>Import the project</h1>
+<ul>
+<li>When asked about a workspace, indicate a new workspace or any existing one.</li>
+<li>Go to menu <code>File &gt; Import &gt; Maven &gt; Existing Maven Projects</code>. Browse to the project (<code>Demos/</code> folder), Eclipse should recognize the project.</li>
+</ul>
+<figure>
+<img src="img/eclipse-import-maven-projects.png" alt="eclipse-import-maven-projects" /><figcaption>eclipse-import-maven-projects</figcaption>
+</figure>
+</section>
+<section id="get-graphstream-binaries" class="slide level1">
+<h1>Get GraphStream binaries</h1>
+<h3 id="with-maven">With Maven</h3>
+<ul>
+<li>Dependencies are automatically resolved by maven in the <code>pom.xml</code> file :</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="co">&lt;!-- ... --&gt;</span>
+<span class="kw">&lt;groupId&gt;</span>org.graphstream<span class="kw">&lt;/groupId&gt;</span>
+<span class="kw">&lt;artifactId&gt;</span>gs-core<span class="kw">&lt;/artifactId&gt;</span>
+<span class="kw">&lt;version&gt;</span>1.3<span class="kw">&lt;/version&gt;</span>
+<span class="co">&lt;!-- ... --&gt;</span>
+<span class="kw">&lt;groupId&gt;</span>org.graphstream<span class="kw">&lt;/groupId&gt;</span>
+<span class="kw">&lt;artifactId&gt;</span>gs-algo<span class="kw">&lt;/artifactId&gt;</span>
+<span class="kw">&lt;version&gt;</span>1.3<span class="kw">&lt;/version&gt;</span>
+<span class="co">&lt;!-- ... --&gt;</span>
+<span class="kw">&lt;groupId&gt;</span>org.graphstream<span class="kw">&lt;/groupId&gt;</span>
+<span class="kw">&lt;artifactId&gt;</span>gs-ui<span class="kw">&lt;/artifactId&gt;</span>
+<span class="kw">&lt;version&gt;</span>1.3<span class="kw">&lt;/version&gt;</span></code></pre></div>
+<ul>
+<li>In Eclipse : nothing to do!</li>
+<li>Or on the command line : <code>mvn compile</code></li>
+</ul>
+</section>
+<section id="get-graphstream-binaries-1" class="slide level1">
+<h1>Get GraphStream binaries</h1>
+<h3 id="without-maven">Without Maven</h3>
+<p>Binaries can be found on the GraphStream Download page <a href="http://graphstream-project.org/download/">graphstream-project.org/download/</a> :</p>
+<ul>
+<li><code>gs-algo-1.3.zip</code>, <code>gs-core-1.3.zip</code>, <code>gs-ui-1.3.zip</code>.</li>
+<li>Extract those zip file, and copy <code>gs-algo-1.3.jar</code>, <code>gs-core-1.3.jar</code>, <code>gs-ui-1.3.jar</code> to the <code>gs-talk-NetSciX2016/Demos/lib</code> folder of the project.</li>
+<li>In Eclipse, select the project in the left panel and refresh the project (F5 key).</li>
+<li>Right-clic on the project (<code>gs-talk</code>), then properties, then Java build path (left panel), then libraries (right panel), then clic the <code>Add Jars</code> button, and select our 3 jar files in the <code>gs-talk-NetSciX2016/Demos/lib/</code> folder.</li>
+</ul>
+</section>
+<section id="tutorial-1" class="slide level1">
+<h1>Tutorial 1</h1>
+<h3 id="basic-tasks-with-graphstream">Basic tasks with GraphStream</h3>
+</section>
+<section id="create-and-display" class="slide level1">
+<h1>Create and display</h1>
+<ul>
+<li>Open <code>src/org/graphstream/demo/tutorial1/Tutorial1.java</code></li>
+<li>Right-clic on <code>Tutorial1.java</code>, then <code>Run As &gt; Java Application</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Tutorial1 {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String args[]) {
+        Graph graph = <span class="kw">new</span> <span class="fu">SingleGraph</span>(<span class="st">&quot;Tutorial 1&quot;</span>);
+        graph.<span class="fu">display</span>();
+        graph.<span class="fu">addNode</span>(<span class="st">&quot;A&quot;</span>);
+        graph.<span class="fu">addNode</span>(<span class="st">&quot;B&quot;</span>);
+        graph.<span class="fu">addEdge</span>(<span class="st">&quot;AB&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>);
+        graph.<span class="fu">addNode</span>(<span class="st">&quot;C&quot;</span>);
+        graph.<span class="fu">addEdge</span>(<span class="st">&quot;BC&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="kw">true</span>); <span class="co">// Directed edge.</span>
+        graph.<span class="fu">addEdge</span>(<span class="st">&quot;CA&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>);
+    }
+}</code></pre></div>
+<p>Maven command line: <code>mvn exec:java-Dexec.mainClass=&quot;org.graphstream.demo.tutorial1.Tutorial1&quot;</code></p>
+</section>
+<section id="change-the-display-with-css" class="slide level1">
+<h1>Change the Display with CSS</h1>
+<p>We can improve the display with some CSS:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">...
+graph.<span class="fu">display</span>();
+
+graph.<span class="fu">addAttribute</span>(<span class="st">&quot;ui.quality&quot;</span>);
+graph.<span class="fu">addAttribute</span>(<span class="st">&quot;ui.antialias&quot;</span>);
+graph.<span class="fu">setAttribute</span>(<span class="st">&quot;ui.stylesheet&quot;</span>, <span class="st">&quot;&quot;</span> +
+                    <span class="st">&quot;edge {&quot;</span> +
+                    <span class="st">&quot;   size: 2px;&quot;</span> +
+                    <span class="st">&quot;   fill-color: gray;&quot;</span> +
+                    <span class="st">&quot;}&quot;</span>);
+
+...</code></pre></div>
+</section>
+<section id="access-elements" class="slide level1">
+<h1>Access Elements</h1>
+<ul>
+<li>Each node, edge and attribute is identified by an unique string.</li>
+<li>The node and edge elements are created for you.</li>
+<li>You can access them however, when created: <code>Node n = graph.addNode(&quot;A&quot;);</code></li>
+<li>Or after creation: <code>Node n = graph.getNode(&quot;A&quot;);</code></li>
+</ul>
+</section>
+<section id="constructive-api-vs.events" class="slide level1">
+<h1>Constructive API vs. Events</h1>
+<ul>
+<li>You can remove nodes and edges the same way: <code>graph.removeNode(&quot;A&quot;);</code></li>
+<li>You can change the graph this way at any time. Each change is considered as an “event”.</li>
+<li>The sequence of changes is seen as the dynamics of the graph.</li>
+<li>There are many other ways to modify the graph.</li>
+</ul>
+</section>
+<section id="attributes" class="slide level1">
+<h1>Attributes</h1>
+<p>Data stored in the graph, on nodes and edges, are called “attributes”. An attribute is a pair (name,value).</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">Edge ab = graph.<span class="fu">getEdge</span>(<span class="st">&quot;AB&quot;</span>);
+Edge bc = graph.<span class="fu">getEdge</span>(<span class="st">&quot;BC&quot;</span>);
+Edge ca = graph.<span class="fu">getEdge</span>(<span class="st">&quot;CA&quot;</span>);
+
+ab.<span class="fu">setAttribute</span>(<span class="st">&quot;ui.label&quot;</span>, <span class="st">&quot;AB&quot;</span>);
+bc.<span class="fu">setAttribute</span>(<span class="st">&quot;ui.label&quot;</span>, <span class="st">&quot;BC&quot;</span>);
+ca.<span class="fu">setAttribute</span>(<span class="st">&quot;ui.label&quot;</span>, <span class="st">&quot;CA&quot;</span>);
+
+<span class="kw">for</span>(String id : <span class="kw">new</span> String[]{<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>}){
+    graph.<span class="fu">getNode</span>(id).<span class="fu">setAttribute</span>(<span class="st">&quot;ui.label&quot;</span>, id);
+}
+graph.<span class="fu">setAttribute</span>(<span class="st">&quot;ui.stylesheet&quot;</span>, <span class="st">&quot;url(data/style.css);&quot;</span>);</code></pre></div>
+</section>
+<section id="define-attributes" class="slide level1">
+<h1>Define Attributes</h1>
+<ul>
+<li>But you can add any kind of data on each graph element.</li>
+<li>However not all attributes appear in the viewer.</li>
+<li>Notice the way you can add arrays with <code>setAttribute()</code> and a variable number of arguments:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">ab.<span class="fu">setAttribute</span>(<span class="st">&quot;aNumber&quot;</span>, <span class="dv">10</span>);
+bc.<span class="fu">setAttribute</span>(<span class="st">&quot;anObject&quot;</span>, <span class="kw">new</span> Double(<span class="dv">10</span>));
+ca.<span class="fu">setAttribute</span>(<span class="st">&quot;anArrayOfThings&quot;</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>);</code></pre></div>
+</section>
+<section id="retrieve-attributes" class="slide level1">
+<h1>Retrieve Attributes</h1>
+<p>Several ways to retrieve attributes:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="dt">int</span> value1 = ((Number) ab.<span class="fu">getAttribute</span>(<span class="st">&quot;aNumber&quot;</span>)).<span class="fu">intValue</span>();
+<span class="dt">double</span> value2 = bc.<span class="fu">getAttribute</span>(<span class="st">&quot;anObject&quot;</span>);
+Object[] value3 = ca.<span class="fu">getAttribute</span>(<span class="st">&quot;anArrayOfThings&quot;</span>);</code></pre></div>
+<p>Special methods are here to simplify things:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="dt">double</span> value4 = ab.<span class="fu">getNumber</span>(<span class="st">&quot;aNumber&quot;</span>);
+<span class="dt">double</span> value5 = bc.<span class="fu">getNumber</span>(<span class="st">&quot;anObject&quot;</span>);</code></pre></div>
+</section>
+<section id="traversing-the-graph" class="slide level1">
+<h1>Traversing the graph</h1>
+<p>Iterating through all nodes of the graph is easy:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">for</span>(Node n: graph) {
+    System.<span class="fu">out</span>.<span class="fu">println</span>(n.<span class="fu">getId</span>());
+}</code></pre></div>
+<p>Equally for edges:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">for</span>(Edge e: graph.<span class="fu">getEachEdge</span>()) {
+    System.<span class="fu">out</span>.<span class="fu">println</span>(e.<span class="fu">getId</span>());
+}</code></pre></div>
+</section>
+<section id="other-iterators" class="slide level1">
+<h1>Other iterators</h1>
+<p>Iterators for nodes:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">Iterator&lt;? <span class="kw">extends</span> Node&gt; nodes = graph.<span class="fu">getNodeIterator</span>();
+
+<span class="kw">while</span>(nodes.<span class="fu">hasNext</span>()) {
+    System.<span class="fu">out</span>.<span class="fu">println</span>(nodes.<span class="fu">next</span>().<span class="fu">getId</span>());
+}</code></pre></div>
+<p>Iterators for edges:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">Iterator&lt;? <span class="kw">extends</span> Edge&gt; edges = graph.<span class="fu">getEdgeIterator</span>();
+
+<span class="kw">while</span>(edges.<span class="fu">hasNext</span>()) {
+    System.<span class="fu">out</span>.<span class="fu">println</span>(edges.<span class="fu">next</span>().<span class="fu">getId</span>());
+}</code></pre></div>
+</section>
+<section id="index-based-access" class="slide level1">
+<h1>Index-based access</h1>
+<p>Indices for nodes:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="dt">int</span> n = graph.<span class="fu">getNodeCount</span>();
+<span class="kw">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;n; i++) {
+    System.<span class="fu">out</span>.<span class="fu">println</span>(graph.<span class="fu">getNode</span>(i).<span class="fu">getId</span>());
+}</code></pre></div>
+<p>Indices for edges:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="dt">int</span> n = graph.<span class="fu">getEdgeCount</span>();
+<span class="kw">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;n; i++) {
+    System.<span class="fu">out</span>.<span class="fu">println</span>(graph.<span class="fu">getEdge</span>(i).<span class="fu">getId</span>());
+}</code></pre></div>
+<p>⚠ indices remain the same as long as the graph is unchanged. But as soon as an addition or removal occurs, indices are no longer tied to their old node or edge ⚠</p>
+</section>
+<section id="travers-from-nodes-and-edges" class="slide level1">
+<h1>Travers from nodes and edges</h1>
+<p>You can also travel the graph using nodes:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import static org.graphstream.algorithm.Toolkit.*;</span>
+<span class="co">//...</span>
+Node node = <span class="fu">randomNode</span>(graph);
+
+<span class="kw">for</span>(Edge e: node.<span class="fu">getEachEdge</span>()) {
+    System.<span class="fu">out.printf</span>(<span class="st">&quot;neighbor </span><span class="ch">%s</span><span class="st"> via </span><span class="ch">%s%n</span><span class="st">&quot;</span>,
+        e.<span class="fu">getOpposite</span>(node).<span class="fu">getId</span>(),
+        e.<span class="fu">getId</span>() );
+}</code></pre></div>
+<ul>
+<li>Each node and edge allow to iterate on their neighbourhood.</li>
+<li><code>Toolkit</code> is set of often used functions and small algorithms (see the <a href="http://www.graphstream-project.org/api/gs-algo/org/graphstream/algorithm/Toolkit.html">API</a>).</li>
+</ul>
+</section>
+<section id="orientation-based-interaction" class="slide level1">
+<h1>Orientation-based interaction</h1>
+<p>You can iterate on directed edges:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">Node node = <span class="fu">getRandomNode</span>(graph);
+Iterator&lt;? <span class="kw">extends</span> Edge&gt; edges = node.<span class="fu">getLeavingEdgeIterator</span>();</code></pre></div>
+<p>Or:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">Iterator&lt;? <span class="kw">extends</span> Edge&gt; edges = node.<span class="fu">getEnteringEdgeIterator</span>();</code></pre></div>
+<p>And get the node degree, entering or leaving:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">System.<span class="fu">out</span>.<span class="fu">println</span>(“Node degree %<span class="fu">d</span> (entering %d, leaving %d)%n”,
+    node.<span class="fu">getDegree</span>(),
+    node.<span class="fu">getInDegree</span>(),
+    node.<span class="fu">getOutDegree</span>());</code></pre></div>
+</section>
+<section id="tutorial-2" class="slide level1">
+<h1>Tutorial 2</h1>
+<h3 id="a-first-dynamic-graph">A first dynamic graph</h3>
+</section>
+<section id="sinks" class="slide level1">
+<h1>Sinks</h1>
+<ul>
+<li>A graph can receive events. It is a <em>sink</em>.</li>
+<li>A <em>sink</em> is connected to a <em>source</em> using the <code>Source.addSink(Sink)</code> method.</li>
+<li>Events are filtered by type (<em>Elements Events</em> and <em>Attributes Events</em>) :
+<ul>
+<li><code>addElementSink(ElementSink)</code>. Nodes and edges are <em>Elements</em>.</li>
+<li><code>addAttributeSink(AttributeSink)</code>. Data attributes are stored on every element.</li>
+</ul></li>
+<li>A <code>Sink</code> is both an <code>ElementSink</code> and <code>AttributeSink</code>.</li>
+</ul>
+</section>
+<section id="elementsink" class="slide level1">
+<h1>ElementSink</h1>
+<p>ElementSink is an interface</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> ElementSink {
+    <span class="dt">void</span> <span class="fu">nodeAdded</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">nodeRemoved</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">edgeAdded</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">edgeRemoved</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">graphCleared</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">stepBegins</span>( <span class="kw">... </span>);
+}</code></pre></div>
+</section>
+<section id="attributesink" class="slide level1">
+<h1>AttributeSink</h1>
+<p>An attribute sink must follow the interface:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> AttributeSink {
+    <span class="dt">void</span> <span class="fu">graphAttributeAdded</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">graphAttributeChanged</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">graphAttributeRemoved</span>( <span class="kw">... </span>);
+
+    <span class="dt">void</span> <span class="fu">nodeAttributeAdded</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">nodeAttributeChanged</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">nodeAttributeRemoved</span>( <span class="kw">... </span>);
+
+    <span class="dt">void</span> <span class="fu">edgeAttributeAdded</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">edgeAttributeChanged</span>( <span class="kw">... </span>);
+    <span class="dt">void</span> <span class="fu">edgeAttributeRemoved</span>( <span class="kw">... </span>);
+}</code></pre></div>
+</section>
+<section id="source" class="slide level1">
+<h1>Source</h1>
+<p>A source is an interface that only defines methods to handle a set of sinks.</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> Source {
+    <span class="dt">void</span> <span class="fu">addSink</span>(Sink sink);
+    <span class="dt">void</span> <span class="fu">removeSink</span>(Sink sink);
+    <span class="dt">void</span> <span class="fu">addAttributeSink</span>(AttributeSink sink);
+    <span class="dt">void</span> <span class="fu">removeAttributeSink</span>(AttributeSink sink);
+    <span class="dt">void</span> <span class="fu">addElementSink</span>(ElementSink sink);
+    <span class="dt">void</span> <span class="fu">removeElementSink</span>(ElementSink sink);
+    <span class="dt">void</span> <span class="fu">clearElementSinks</span>();
+    <span class="dt">void</span> <span class="fu">clearAttributeSinks</span>();
+    <span class="dt">void</span> <span class="fu">clearSinks</span>();
+}</code></pre></div>
+</section>
+<section id="a-first-dynamic-graph-1" class="slide level1">
+<h1>A first dynamic graph</h1>
+<p>Since Graph is a <em>sink</em> let’s create a graph from a set of events generated by a <em>source</em>.</p>
+<ul>
+<li>A file with information about graphs (in a proper file format) can be a source of events.</li>
+<li>A few graph file formats can handle dynamic.</li>
+<li>GraphStream provides a file format (DGS) that allows to store and load dynamic graphs.</li>
+</ul>
+<figure>
+<img src="img/pipeline.svg" alt="A graph from a file" /><figcaption>A graph from a file</figcaption>
+</figure>
+</section>
+<section id="the-gds-file-format" class="slide level1">
+<h1>The GDS File Format</h1>
+<ul>
+<li><code>an</code> for “add node”.</li>
+<li><code>ae</code> for “add edge”.</li>
+<li><code>ae &quot;AB&quot; &quot;A&quot; &gt; &quot;B&quot;</code> adds a directed edge between nodes <code>A</code> and <code>B</code>.</li>
+<li><code>cn</code>, <code>ce</code> and <code>cg</code> change or add one or more attributes on a node, an edge or the graph.</li>
+<li><code>dn</code> and <code>de</code> allow to remove nodes, edges.</li>
+</ul>
+<p>Open the example DGS file in <code>data/tutorial2.dgs</code>.</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">DGS003
+<span class="st">&quot;Tutorial 2&quot;</span> <span class="dv">0</span> <span class="dv">0</span>
+an <span class="st">&quot;A&quot;</span>
+an <span class="st">&quot;B&quot;</span>
+an <span class="st">&quot;C&quot;</span>
+ae <span class="st">&quot;AB&quot;</span> <span class="st">&quot;A&quot;</span> <span class="st">&quot;B&quot;</span>
+...</code></pre></div>
+</section>
+<section id="how-to-handle-dynamics" class="slide level1">
+<h1>How to handle dynamics</h1>
+<ul>
+<li>Storing temporal information is tricky.</li>
+<li>Timestamps on events is a good way to encode time</li>
+<li>But some events occur at the same time.</li>
+<li>Let’s define <em>time steps</em> within events</li>
+<li><code>st &lt;number&gt;</code></li>
+</ul>
+</section>
+<section id="steps-in-dgs" class="slide level1">
+<h1>Steps in DGS</h1>
+<p>The ability to remove nodes and edges make the format dynamic.</p>
+<p>Add this to the <code>data/tutorial2.dgs</code> file:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">st <span class="dv">2</span>
+an <span class="st">&quot;D&quot;</span> label=<span class="st">&quot;D&quot;</span>
+an <span class="st">&quot;E&quot;</span> label=<span class="st">&quot;E&quot;</span>
+ae <span class="st">&quot;BD&quot;</span> <span class="st">&quot;B&quot;</span> <span class="st">&quot;D&quot;</span> label=<span class="st">&quot;BD&quot;</span>
+ae <span class="st">&quot;CE&quot;</span> <span class="st">&quot;C&quot;</span> <span class="st">&quot;E&quot;</span> label=<span class="st">&quot;CE&quot;</span>
+ae <span class="st">&quot;DE&quot;</span> <span class="st">&quot;D&quot;</span> <span class="st">&quot;E&quot;</span> label=<span class="st">&quot;DE&quot;</span>
+st <span class="dv">3</span>
+de <span class="st">&quot;AB&quot;</span>
+st <span class="dv">4</span>
+dn <span class="st">&quot;A&quot;</span></code></pre></div>
+<p>And save it.</p>
+</section>
+<section id="read-the-whole-file" class="slide level1">
+<h1>Read the whole file</h1>
+<p>The file can be read entirely :</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">graph.<span class="fu">read</span>(<span class="st">&quot;tutorial2.dgs&quot;</span>);</code></pre></div>
+<ul>
+<li>However this will send all events as fast as possible.</li>
+<li>We have no control over the speed at which events occur.</li>
+</ul>
+</section>
+<section id="read-the-file-event-by-event" class="slide level1">
+<h1>Read the file event by event</h1>
+<p>We can read the DGS file event by event using an input source:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">Graph graph = <span class="kw">new</span> <span class="fu">SingleGraph</span>(<span class="st">&quot;Tutorial2&quot;</span>);
+graph.<span class="fu">display</span>();
+FileSource source = <span class="kw">new</span> <span class="fu">FileSourceDGS</span>();
+source.<span class="fu">addSink</span>( graph );
+source.<span class="fu">begin</span>(<span class="st">&quot;data/tutorial2.dgs&quot;</span>);
+<span class="kw">while</span>( source.<span class="fu">nextEvents</span>() );
+source.<span class="fu">end</span>();</code></pre></div>
+<figure>
+<img src="img/pipeline.svg" alt="FileSource Pipeline" /><figcaption>FileSource Pipeline</figcaption>
+</figure>
+</section>
+<section id="read-the-file-step-by-step" class="slide level1">
+<h1>Read the file step by step</h1>
+<ul>
+<li>We read the file event by event (line by line in the file), however it still does it as fast as it can.</li>
+<li>Note the line <code>while(source.nextEvents());</code></li>
+<li>Also note that we have to call the <code>begin()</code> and <code>end()</code> methods before and after reading to cleanly open and close the file.</li>
+<li><p>Let’s slow down the process :</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">while</span>(source.<span class="fu">nextEvents</span>()) { Thread.<span class="fu">sleep</span>(<span class="dv">1000</span>); }</code></pre></div></li>
+<li><p>We can also run it step by step so that events between two step appear together</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">while</span>(source.<span class="fu">nextStep</span>()) { Thread.<span class="fu">sleep</span>(<span class="dv">1000</span>); }</code></pre></div></li>
+</ul>
+</section>
+<section id="graph-layout" class="slide level1">
+<h1>Graph Layout</h1>
+<ul>
+<li>By default the graph the spacial position of nodes on the display is automatically computed.</li>
+<li>However one may want to position nodes by ourself.</li>
+<li>One can do this using the <code>x</code> and <code>y</code> attributes:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">an <span class="st">&quot;A&quot;</span> x=<span class="dv">0</span> y=<span class="dv">1</span>
+an <span class="st">&quot;B&quot;</span> x=<span class="dv">1</span> y=-<span class="dv">1</span>
+an <span class="st">&quot;C&quot;</span> x=-<span class="dv">1</span> y=-<span class="dv">1</span>
+<span class="co">// ...</span>
+an <span class="st">&quot;D&quot;</span> x=<span class="dv">1</span> y=<span class="dv">1</span>
+an <span class="st">&quot;E&quot;</span> x=-<span class="dv">1</span> y=<span class="dv">1</span></code></pre></div>
+<p>Then one have to tell the viewer not to compute nodes positions:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">graph.<span class="fu">display</span>(<span class="kw">false</span>);</code></pre></div>
+</section>
+    </div>
+  </div>
+
+  <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+  <script src="bower_components/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: 0,
+        // Display a presentation progress bar
+        progress: 0,
+        // Display the page number of the current slide
+        slideNumber: 1,
+        // Push each slide change to the browser history
+        history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: 1,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Hides the address bar on mobile devices
+        hideAddressBar: true,
+        // Transition style
+        transition: 'linear', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'fast', // default/fast/slow
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 800,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
