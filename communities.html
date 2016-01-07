@@ -61,6 +61,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <!--[if lt IE 9]>
   <script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
   <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 <body>
   <div class="reveal">
@@ -125,14 +126,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section>
 <section id="modularity" class="slide level1">
 <h1>Modularity</h1>
-<p>One of the most used measure is the modularity <span class="math inline"><em>Q</em></span>.</p>
-<p>Intuition: <span class="math inline"><em>Q</em></span> measures the fraction of intra-communities edges minus the same fraction if the network had edges at random (with the same communities divisions). <a href="http://www.pnas.org/content/103/23/8577.full">M. E. J. Newman (2006)</a></p>
+<p>One of the most used measure is the modularity <span class="math inline">\(Q\)</span>.</p>
+<p>Intuition: <span class="math inline">\(Q\)</span> measures the fraction of intra-communities edges minus the same fraction if the network had edges at random (with the same communities divisions). <a href="http://www.pnas.org/content/103/23/8577.full">M. E. J. Newman (2006)</a></p>
 <ul>
-<li>If <span class="math inline"><em>Q</em> = 0</span> the edges intra-communities is not better than random.</li>
-<li>If <span class="math inline"><em>Q</em> = 1</span> we have very strong community structure.</li>
-<li>In practice modular network lie between <span class="math inline"><em>Q</em> = 0.3</span> and <span class="math inline"><em>Q</em> = 0.7</span>.</li>
+<li>If <span class="math inline">\(Q=0\)</span> the edges intra-communities is not better than random.</li>
+<li>If <span class="math inline">\(Q=1\)</span> we have very strong community structure.</li>
+<li>In practice modular network lie between <span class="math inline">\(Q=0.3\)</span> and <span class="math inline">\(Q=0.7\)</span>.</li>
 </ul>
-<p>Modularity gives results in <span class="math inline">$\left[-\frac{1}{2} .. 1\right]$</span>.</p>
+<p>Modularity gives results in <span class="math inline">\(\left[-\frac{1}{2} .. 1\right]\)</span>.</p>
 </section>
 <section id="modularity-1" class="slide level1">
 <h1>Modularity</h1>
@@ -144,14 +145,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>
 We could compare the proportion of internal links <span style="color:red;">\(I_c\)</span> in each community \(c\) to the number of edges \(m\). Links in green <span style="color:green;">\(O_c\)</span> go out of the community \(c\).
 </p>
-<p><span class="math inline">$Q = \sum_c\frac{I_c}{m}~~~~~~~$</span> <img src="img/Modularity2.svg" alt="Modularirty" /></p>
+<p><span class="math inline">\(Q = \sum_c\frac{I_c}{m}~~~~~~~\)</span> <img src="img/Modularity2.svg" alt="Modularirty" /></p>
 <p>This would not be sufficient, since putting all nodes in the same community would produce a perfectly modular network !</p>
 </section>
 <section id="modularity-3" class="slide level1">
 <h1>Modularity</h1>
 <p>Instead we compare the ratio \(\frac{I_c}{m}\) with the expected value in the same network but with all its links randomly rewired, that is:</p>
-<p><br /><span class="math display">$$\frac{(2 I_c + O_c)^2}{(2m)^2}~~~~~~~~$$</span><br /> <img src="img/Modularity3.svg" alt="Modularity" /></p>
-<p><span class="math inline">$Q = \sum_c\frac{I_c}{m} - \sum_c\frac{(2 I_c + O_c)^2}{(2m)^2}$</span></p>
+<p><span class="math display">\[\frac{(2 I_c + O_c)^2}{(2m)^2}~~~~~~~~\]</span> <img src="img/Modularity3.svg" alt="Modularity" /></p>
+<p><span class="math inline">\(Q = \sum_c\frac{I_c}{m} - \sum_c\frac{(2 I_c + O_c)^2}{(2m)^2}\)</span></p>
 </section>
 <section id="network-dynamics" class="slide level1">
 <h1>Network dynamics?</h1>
@@ -183,10 +184,10 @@ We could compare the proportion of internal links <span style="color:red;">\(I_c
 <li>Weakly connected nodes are separated at distant positions.</li>
 </ul>
 <p>Most force based algorithms try to the minimize energy.</p>
-<p>Lin-Log is based on a <span class="math inline">(<em>a</em>, <em>r</em>)</span>-energy model.</p>
+<p>Lin-Log is based on a <span class="math inline">\((a,r)\)</span>-energy model.</p>
 <ul>
-<li><span class="math inline"><em>a</em></span> is the attraction force factor,</li>
-<li><span class="math inline"><em>r</em></span> the repulsion force factor.</li>
+<li><span class="math inline">\(a\)</span> is the attraction force factor,</li>
+<li><span class="math inline">\(r\)</span> the repulsion force factor.</li>
 </ul>
 </section>
 <section id="the-lin-log-layout-and-network-dynamics" class="slide level1">
@@ -264,7 +265,7 @@ We could compare the proportion of internal links <span style="color:red;">\(I_c
 <ol type="1">
 <li>Stop the automatic layout.</li>
 <li>Create our own LinLog layout.</li>
-<li>Configure it using some <span class="math inline"><em>a</em></span> and <span class="math inline"><em>r</em></span> parameters.</li>
+<li>Configure it using some <span class="math inline">\(a\)</span> and <span class="math inline">\(r\)</span> parameters.</li>
 <li>Connect the layout graph events output to the graph so that the graph nodes receive position attributes.</li>
 <li>Connect the graph to the layout so that the layout receive each modification event on the graph.</li>
 <li>Run the layout in a loop.</li>
@@ -588,7 +589,7 @@ We could compare the proportion of internal links <span style="color:red;">\(I_c
 <section id="thats-it" class="slide level1">
 <h1>That’s it!</h1>
 <p>Some other graphs are provided in the <code>data</code> directory of the eclipse project.</p>
-<p>You can experiment on them, and play with the <code>cutThreshold</code> parameter as well as the <span class="math inline">(<em>a</em>, <em>r</em>)</span> and <code>force</code> parameters. Here is a set of good values for these graphs:</p>
+<p>You can experiment on them, and play with the <code>cutThreshold</code> parameter as well as the <span class="math inline">\((a, r)\)</span> and <code>force</code> parameters. Here is a set of good values for these graphs:</p>
 <table>
 <thead>
 <tr class="header">
