@@ -82,11 +82,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Algorithms</li>
 <li>Visualisation</li>
 <li>Interaction with other tools</li>
-<li>Demos
-<ul>
-<li>basic demos</li>
-<li>simulation of a mobile ad hoc network</li>
-</ul></li>
 </ul>
 </section>
 <section id="first-static-graphs" class="slide level1">
@@ -455,6 +450,63 @@ Sprite pin = sman.<span class="fu">addSprite</span>(<span class="st">&quot;pin&q
 <iframe width="1280" height="800" src="https://www.youtube.com/embed/XX5rRF6uxow" frameborder="0" allowfullscreen>
 </iframe>
 </section>
+</section>
+<section id="offline-interactions" class="slide level1">
+<h1>Offline interactions</h1>
+<h3 id="file-formats">File formats</h3>
+<p>Tulip, Gephi, GML, Pajek, DOT, LGL, ncol, DGS</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">DGS004
+<span class="st">&quot;graph.dgs&quot;</span> <span class="dv">0</span> <span class="dv">0</span>
+an A x:<span class="dv">1</span> y:<span class="fl">2.3</span> label:<span class="st">&quot;Node A&quot;</span>
+an B x:<span class="dv">0</span> y:<span class="dv">0</span>
+an C xy:<span class="fl">2.3</span>,<span class="dv">1</span>
+an D xyz:<span class="dv">1</span>,<span class="dv">1</span>
+ae AB A B weight:<span class="fl">23.3</span>
+ae AC A C weight:<span class="dv">2</span>
+st <span class="fl">1.0</span>
+ae BC B &gt; C
+ae BD B &gt; D
+st <span class="fl">1.1</span>
+dn B</code></pre></div>
+</section>
+<section id="online-interactions" class="slide level1">
+<h1>OnLine interactions</h1>
+<h3 id="netstream">NetStream</h3>
+<ul>
+<li>Export streams of events to other applications / machines / languages</li>
+<li>Both ways. From GS to other and from other to GS</li>
+<li>Binary network protocol</li>
+<li>TCP socket (and WebSocket) implementation</li>
+<li>Several languages (Java, C++, Python, JS)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import org.graphstream.stream.netstream.NetStreamReceiver;</span>
+<span class="co">//...</span>
+NetStreamReceiver net = <span class="kw">new</span> <span class="fu">NetStreamReceiver</span>(<span class="dv">2001</span>);
+ThreadProxyPipe pipe = net.<span class="fu">getDefaultStream</span>();
+pipe.<span class="fu">addSink</span>(graph);
+<span class="kw">while</span> (<span class="kw">true</span>) {
+  pipe.<span class="fu">blockingPump</span>();
+}</code></pre></div>
+</section>
+<section id="netlogo-extension" class="slide level1">
+<h1>NetLogo Extension</h1>
+<ul>
+<li>NetLogo agents (turtles, links and observer) send graph events to external application</li>
+<li>The external application maintains a dynamic graph and runs algorithms on it</li>
+<li>It sends the computed results back to NetLogo</li>
+<li>Agents can receive and use them to take their decisions</li>
+</ul>
+<figure>
+<img src="img/netlogo.jpg" alt="NetLogo Extension" /><figcaption>NetLogo Extension</figcaption>
+</figure>
+</section>
+<section id="slides-and-material" class="slide level1">
+<h1>Slides and Material</h1>
+<p>Get the Slides and Materials online:</p>
+<ul>
+<li>code <a href="https://github.com/graphstream/gs-talk">github.com/graphstream/gs-talk</a></li>
+<li>slides <a href="https://graphstream.github.io/gs-talk">graphstream.github.io/gs-talk</a></li>
+</ul>
 <!-- END -->
 </section>
     </div>
@@ -481,9 +533,11 @@ Sprite pin = sman.<span class="fu">addSprite</span>(<span class="st">&quot;pin&q
         // Enable the slide overview mode
         overview: true,
         // Vertical centering of slides
-        center: 0,
+        center: 1,
         // Enables touch navigation on devices with touch input
         touch: true,
+        // Loop the presentation
+        loop: true,
         // Hides the address bar on mobile devices
         hideAddressBar: true,
         // Transition style
